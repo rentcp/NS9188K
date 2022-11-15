@@ -12,7 +12,15 @@ pip install pytest-randomly
 ```
 
 ### Overview:
-There are multiple Jupyter notebooks intended to be used sequentially. Briefly:
+There are multiple Jupyter notebooks intended to be used sequentially:
+```mermaid
+graph TD;
+    _AIRS1_GES_DISC_downloader-->_AIRS2_L1b_HDFs_to_daily_CSV;
+    _AIRS2_L1b_HDFs_to_daily_CSV-->_AIRS3_daily_gzips_to_single_annual_csv;
+    _AIRS3_daily_gzips_to_single_annual_csv-->_AIRS4_single_annual_csv_to_gridded_annual_avg;
+    _AIRS4_single_annual_csv_to_gridded_annual_avg-->_AIRS_6;
+    _AIRS5_shortcutter_-->_AIRS_6;
+```
  - `_AIRS1_GES_DISC_downloader` accepts a `year` and proceeds to download `.HDF` files from GES DISC. For example, `AIRS.2003.07.04.122.L1B.AIRS_Rad.v5.0.0.0.G07090064822.hdf` is a 55 MB file, and there are 240 per day. One year of AIRS data will take approximately 1 week to download over a 200 MBPS connection and will occupy ~4.5 TB.
  - `_AIRS2_L1b_HDFs_to_daily_CSV` will read in the 4.5 TB/yr of `.HDF` files, extract the clear-sky radiances, and save each day of radiances to a single compressed `.csv.gzp` file (app. 100 MB each).
  - `_AIRS3_daily_gzips_to_single_annual_csv` will read in each of the 100 MB files (each of which has every clear-sky radiance individually) and create a gridded daily average `.csv.gzp` where every day is the average radiance for every grid cell. Each file of annual gridded average is app. 770 MB.

@@ -6,9 +6,6 @@ Jupyter (Python 3)
 ```
 conda install py-hdf -c conda-forge
 conda install requests
-conda install pytest
-pip install asciimatics
-pip install pytest-randomly
 ```
 
 ### Overview:
@@ -36,4 +33,9 @@ graph TD;
 3. Verify the local folder exists for saving data. The program expects to find a subfolder with the year and within that year a two digit subfolder for month. These folders must be created by the user. Example: to download AIRS L1b 2003 data, you must create `C:\data\AIRS\L1b\2003\01\` folder, as well, as `02`, `03`...`12`
 4. In `_AIRS2_.ipynb` set the `folder_L1b` to be the location where the `.HDF` files from `_AIRS1_` are located (specify the root folder that has the \year\ folders) then specify which year(s) and month(s) you want to process. Verify the output (save path at the end) is acceptable. Then run all cells to create daily .csv.gzp files with each clear-sky radiance+lat+lon.
 5. In `_AIRS3_.ipynb` set the `files` location where the `.csv.gzp` files are located (from `_AIRS2_`). Verify the output (save path at the end) is acceptable. Then run all cells to create a `2003_dailyavgs.csv.gzp` that is a gridded daily average radiance.
-6. In `_AIRS4_.ipynb` set the `files` location where the `.csv.gzp` files are located (from `_AIRS3_`). Verify the output (save path at the end) is acceptable. Then run all cells to create a `2003_lati_lonj.csv.gzp` that is 'i' lat grid cells and 'j' lon grid cells of monthly average radiances for an entire year.
+6. In `_AIRS4_.ipynb` set the `files` location where the `.csv.gzp` files are located (from `_AIRS3_`). Verify the output (save path at the end) is acceptable. Then run all cells to create a `2003_lati_lonj.csv.gzp` that is 'i' lat grid cells and 'j' lon grid cells of monthly average radiances for an entire year. The default 20x20 lat x lon will produce 9 lat bands x 18 lon bands.
+7. In `_AIRS6_.ipynb` set the `folder_AIRS_20x20`, `folder_LBL_20x20`, and `folder_LBL_cfc` to their respective locations. The `AIRS_ir` and `AIRS_vis` files should be placed in the same folder (see download links below). 
+
+### Download Links for AIRS granule in Fig 1:
+[https://airsl1.gesdisc.eosdis.nasa.gov/data/Aqua_AIRS_Level1/AIRIBRAD.005/2021/099/AIRS.2021.04.09.121.L1B.AIRS_Rad.v5.0.25.0.G21100105112.hdf]
+[https://airsl1.gesdisc.eosdis.nasa.gov/data/Aqua_AIRS_Level1/AIRVBRAD.005/2021/099/AIRS.2021.04.09.121.L1B.VIS_Rad.v5.0.0.0.G21100104903.hdf]

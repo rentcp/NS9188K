@@ -16,7 +16,7 @@ graph TD;
     _AIRS1_GES_DISC_downloader--80 TB-->_AIRS2_L1b_HDFs_to_daily_CSV;
     _AIRS2_L1b_HDFs_to_daily_CSV--800 GB-->_AIRS3_daily_gzips_to_single_annual_csv;
     _AIRS3_daily_gzips_to_single_annual_csv--14 GB-->_AIRS4_single_annual_csv_to_gridded_annual_avg;
-    _AIRS4_single_annual_csv_to_gridded_annual_avg--280 MB-->_AIRS_6;
+    _AIRS4_single_annual_csv_to_gridded_annual_avg--280 MB-->_AIRS_6_Figs;
     _AIRS5_shortcutter_--3.6 GB-->_AIRS_6_Figs;
     _AIRS_6_Figs-->Figures
 

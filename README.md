@@ -3,7 +3,7 @@ AIRS/LBL Radiances 2003-2021
 
 ### Requirements:
 Jupyter (Python 3)
-Dependencies are in the first cell of each workbook. The hardest one to find install instructions for is `py-hdf` so that one is provided here:
+Dependencies are in the first cell of each workbook. Typically they are available via the usual methods, i.e. `pip install requests`. The hardest one to find install instructions for is `py-hdf` so that one is provided here:
 ```
 conda install py-hdf -c conda-forge
 ```

@@ -1,12 +1,12 @@
 # NS9188K
-AIRS/LBL Radiances 2003-2021
+AIRS/LBL Radiances download + processing tool for AIRS granules stored on https://disc.gsfc.nasa.gov/
 
 ### Requirements:
 Jupyter (Python 3)
-Dependencies are in the first cell of each workbook. Typically they are available via the usual methods, i.e. `pip install requests`. The hardest one to find install instructions for is `py-hdf` so that one is provided here:
-```
-conda install py-hdf -c conda-forge
-```
+Dependencies are in the first cell of each workbook. Typically they are available via the usual methods, i.e. `pip install pandas`. The hardest package to install successfully is `pyhdf`, so the following helpful links are provided:
+ - https://hdfeos.org/software/pyhdf.php
+ - http://fhs.github.io/pyhdf/install.html
+ - https://gist.github.com/protrolium/200ce56b48660f22b0b1b29c6ab8eafd
 
 ### Overview:
 There are multiple Jupyter notebooks intended to be used sequentially:

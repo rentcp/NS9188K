@@ -3,9 +3,9 @@ AIRS/LBL Radiances 2003-2021
 
 ### Requirements:
 Jupyter (Python 3)
+Dependencies are in the first cell of each workbook. Typically they are available via the usual methods, i.e. `pip install requests`. The hardest one to find install instructions for is `py-hdf` so that one is provided here:
 ```
 conda install py-hdf -c conda-forge
-conda install requests
 ```
 
 ### Overview:
@@ -16,9 +16,9 @@ graph TD;
     _AIRS1_GES_DISC_downloader--80 TB-->_AIRS2_L1b_HDFs_to_daily_CSV;
     _AIRS2_L1b_HDFs_to_daily_CSV--800 GB-->_AIRS3_daily_gzips_to_single_annual_csv;
     _AIRS3_daily_gzips_to_single_annual_csv--14 GB-->_AIRS4_single_annual_csv_to_gridded_annual_avg;
-    _AIRS4_single_annual_csv_to_gridded_annual_avg--280 MB-->_AIRS_6;
-    _AIRS5_shortcutter_--3.6 GB-->_AIRS_6;
-    _AIRS_6-->Figures
+    _AIRS4_single_annual_csv_to_gridded_annual_avg--280 MB-->_AIRS_6_Figs;
+    _AIRS5_shortcutter_--3.6 GB-->_AIRS_6_Figs;
+    _AIRS_6_Figs-->Figures
 
 ```
  - `_AIRS1_GES_DISC_downloader` accepts a `year` and proceeds to download `.HDF` files from GES DISC. For example, `AIRS.2003.07.04.122.L1B.AIRS_Rad.v5.0.0.0.G07090064822.hdf` is a 55 MB file, and there are 240 per day. One year of AIRS data will take approximately 1 week to download over a 200 MBPS connection and will occupy ~4.5 TB.
@@ -34,7 +34,7 @@ graph TD;
 4. In `_AIRS2_.ipynb` set the `folder_L1b` to be the location where the `.HDF` files from `_AIRS1_` are located (specify the root folder that has the \year\ folders) then specify which year(s) and month(s) you want to process. Verify the output (save path at the end) is acceptable. Then run all cells to create daily .csv.gzp files with each clear-sky radiance+lat+lon.
 5. In `_AIRS3_.ipynb` set the `files` location where the `.csv.gzp` files are located (from `_AIRS2_`). Verify the output (save path at the end) is acceptable. Then run all cells to create a `2003_dailyavgs.csv.gzp` that is a gridded daily average radiance.
 6. In `_AIRS4_.ipynb` set the `files` location where the `.csv.gzp` files are located (from `_AIRS3_`). Verify the output (save path at the end) is acceptable. Then run all cells to create a `2003_lati_lonj.csv.gzp` that is 'i' lat grid cells and 'j' lon grid cells of monthly average radiances for an entire year. The default 20x20 lat x lon will produce 9 lat bands x 18 lon bands.
-7. In `_AIRS6_.ipynb` set the `folder_AIRS_20x20`, `folder_LBL_20x20`, and `folder_LBL_cfc` to their respective locations. The `AIRS_ir` and `AIRS_vis` files should be placed in the same folder (see download links below). 
+7. In `_AIRS6_.ipynb` set the `folder_AIRS_20x20`, `folder_LBL_20x20`, and `folder_LBL_cfc` to their respective locations. The `AIRS_ir` and `AIRS_vis` files should be placed in the same folder (see download links below). Then, run all cells to generate the figures.
 
 ### Download Links for AIRS granule in Fig 1:
 [https://airsl1.gesdisc.eosdis.nasa.gov/data/Aqua_AIRS_Level1/AIRIBRAD.005/2021/099/AIRS.2021.04.09.121.L1B.AIRS_Rad.v5.0.25.0.G21100105112.hdf]

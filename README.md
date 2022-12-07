@@ -24,7 +24,7 @@ graph TD;
  - `_AIRS2_L1b_HDFs_to_daily_CSV` will read in the 4.5 TB/yr of `.HDF` files, extract the clear-sky radiances, and save each day of radiances to a single compressed `.csv.gzp` file (app. 100 MB each).
  - `_AIRS3_daily_gzips_to_single_annual_csv` will read in each of the 100 MB files (each of which has every clear-sky radiance individually) and create a gridded daily average `.csv.gzp` where every day is the average radiance for every grid cell. Each file of annual gridded average is app. 770 MB.
  - `_AIRS4_single_annual_csv_to_gridded_annual_avg` will read in the 770 MB file of gridded daily average radiances for a single year produced by `_AIRS3_` and output monthly averages for each grid cell as a 15 MB `.csv.gzp` file
-- `_AIRS5.5_LBL_shortcutter` will read in the 1 GB/yr of gridded monthly average radiances produced by HITRAN and output a single 1 GB file providing all LBL monthly average radiances at a reduced resolution as a `.csv.gzp` file
+- `_AIRS5.5_LBL_shortcutter` will read in the 1 GB/yr of gridded monthly average radiances produced by HITRAN and output a single 1 GB file providing all LBL monthly average radiances at a reduced resolution as a `.csv.gzp` file. This script needs at least 12 Gb RAM to handle 19 yrs of LBL.
 - `_AIRS6_figs` will read in the files from _AIRS4 and _AIRS5.5_LBL_shortcutter, perform the trending of yearly averages, and produce the figures in the manuscript.
 
 

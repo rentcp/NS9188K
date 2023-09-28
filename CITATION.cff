@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "RENTSCH"
+  given-names: "CHRISTOPHER"
+  orcid: "https://orcid.org/0000-0001-7717-4744"
+title: "NS9188K"
+version: 1.0.0
+doi: 10.5281/zenodo.8386357
+date-released: 2023-09-28
+url: "https://github.com/rentcp/NS9188K"
